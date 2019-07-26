@@ -1,6 +1,7 @@
 import 'package:Tracer/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:math' as math;
 
 class AddVisit extends StatefulWidget {
   @override
@@ -163,31 +164,91 @@ class _AddVisitState extends State<AddVisit> {
                   ),
                 ),
               ),
-              
+              SizedBox(height: 8.0),
+              // Row(
+              //   children: <Widget>[
+              //     Column(
+              //       children: <Widget>[
+              //         CircleAvatar(
+              //           backgroundColor: kTracersBlue900,
+              //           child: Text('JS'),
+              //         )
+              //       ],
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: <Widget>[
+              //           Padding(
+              //             padding: const EdgeInsets.only(left: 10),
+              //             child: Column(
+              //               children: <Widget>[
+              //                 Padding(
+              //                   padding: const EdgeInsets.only(left: 10),
+              //                   child: Text(
+              //                     'John Smith',
+              //                     maxLines: 1,
+              //                     style: Theme.of(context).textTheme.title,
+              //                   ),
+              //                 ),
+              //                 Text(
+              //                   'Pharmacy',
+              //                   maxLines: 1,
+              //                   style: Theme.of(context).textTheme.subtitle,
+              //                 ),
+              //               ],
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //     Column(
+              //       children: <Widget>[],
+              //     ),
+              //   ],
+              // ),
+              Divider(
+                height: 1,
+              ),
+
+              // STYLE LIST USING CheckboxListTile
               CheckboxListTile(
                 value: true,
                 dense: true,
-                title: Text('John'),
+                title: Text('Branch Hines'),
                 subtitle: Text('Pharmacy'),
-                secondary: Icon(FontAwesomeIcons.solidUserCircle), 
+                secondary: CircleAvatar(
+                  backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
+                  child: Text('BH'),
+                ),
                 onChanged: (bool value) {},
               ),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               CheckboxListTile(
                 value: true,
                 dense: true,
-                title: Text('Jane'),
+                title: Text('Soto Edwards'),
                 subtitle: Text('Pharmacy'),
-                secondary: Icon(FontAwesomeIcons.solidUserCircle),
+                secondary: CircleAvatar(
+                  backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
+                  child: Text('SE'),
+                ),
                 onChanged: (bool value) {},
               ),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               CheckboxListTile(
                 value: true,
                 dense: true,
-                title: Text('Julie'),
+                title: Text('Lindsey Mcgowan'),
                 subtitle: Text('Pharmacy'),
-                secondary: Icon(FontAwesomeIcons.solidUserCircle),
+                secondary: CircleAvatar(
+                  backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
+                  child: Text('LM'),
+                ),
                 onChanged: (bool value) {},
               ),
             ]),
