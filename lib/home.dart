@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   // TODO: Make a collection of cards (102)
@@ -20,8 +22,122 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
+    final ThemeData theme = Theme.of(context);
+
+    final vCardOverline = new Expanded(
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'visit.site' + ' - ' + 'visit.location',
+            maxLines: 1,
+            style: theme.textTheme.caption,
+          ),
+        ],
+      ),
+    );
+    //CARD OVERLINE WITH DATE/TIME
+    final vCardDate = new Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
+          child: Text(
+            'Today',
+            maxLines: 1,
+            style: theme.textTheme.caption,
+          ),
+        )
+      ],
+    );
+
+    //CARD HEADING
+    final vCardHeading = new Column(
+      children: <Widget>[
+        Text(
+          'visit.name',
+          style: theme.textTheme.headline,
+          maxLines: 1,
+        ),
+      ],
+    );
+
+    //CARD SUMMARY
+    final vCardSummary = new Column(
+      children: <Widget>[
+        Text(
+          'visit.summary',
+          style: theme.textTheme.body2,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+        ),
+      ],
+    );
+
+    //CARD PROGRESS BAR
+    final vCardProgress = new Expanded(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          child: new LinearProgressIndicator(
+            valueColor: new AlwaysStoppedAnimation(Colors.blue),
+            value: .1,
+          ),
+          height: 4.0,
+          width: 100.0,
+        )
+      ],
+    ));
+
+    //CARD ACTIONS
+    final vCardActions = new Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            //TO DO ICON
+            Column(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(FontAwesomeIcons.solidClipboard),
+                  color: Colors.black45,
+                  iconSize: 18,
+                  onPressed: () {
+                    print('To Do Button');
+                  },
+                ),
+              ],
+            ),
+            //ASSIGN USERS ICON
+            Column(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(FontAwesomeIcons.solidUserCircle),
+                  color: Colors.black45,
+                  iconSize: 18,
+                  onPressed: () {
+                    print('To Do Button');
+                  },
+                ),
+              ],
+            ),
+            //MORE ACTIONS ICON
+            Column(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(FontAwesomeIcons.ellipsisV),
+                  color: Colors.black45,
+                  iconSize: 18,
+                  onPressed: () {
+                    print('Card Actions');
+                  },
+                ),
+              ],
+            ),
+          ],
+        )
+      ],
+    );
+
     return MaterialApp(
       home: DefaultTabController(
         length: 4,
@@ -90,35 +206,61 @@ class HomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
+              //TODAY TAB PANE CONTENT
               ListView(
                 children: <Widget>[
                   SizedBox(
-                    height: 100,
+                    height: 162,
                     child: (Card(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album),
-                            title: Text('The Enchanted Nightingale'),
-                            subtitle: Text(
-                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
+                        clipBehavior: Clip.antiAlias,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  vCardOverline,
+                                  vCardDate,
+                                ],
+                              ),
+                              SizedBox(height: 10.0),
+                              Row(
+                                children: <Widget>[
+                                  vCardHeading,
+                                ],
+                              ),
+                              SizedBox(height: 8.0),
+                              Row(
+                                children: <Widget>[
+                                  vCardSummary,
+                                ],
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  vCardProgress,
+                                  vCardActions,
+                                ],
+                              )
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        ))),
                   ),
                 ],
               ),
-              Text('All'),
-              Text('Fav'),
-              Text('Past')
+
+              //UPCOMING TAB PANE CONTENT
+              Text('Upcoming'),
+
+              //PAST TAB PANE CONTENT
+              Text('Past'),
+
+              //ADMIN TAB PANE CONTENT
+              Text('Admin')
             ],
           ),
         ),
       ),
-
-      // TODO: Add a grid view (102)
     );
   }
 }
