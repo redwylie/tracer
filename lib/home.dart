@@ -62,15 +62,18 @@ class HomePage extends StatelessWidget {
     );
 
     //CARD SUMMARY
-    final vCardSummary = new Column(
-      children: <Widget>[
-        Text(
-          'visit.summary',
-          style: theme.textTheme.body2,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-        ),
-      ],
+    final vCardSummary = new Flexible(
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Quisque viverra nunc eget dui. Etiam iaculis tincidunt sapien. Aliquam erat volutpat. Mauris sagittis mi suscipit est. Maecenas adipiscing erat vestibulum purus. In scelerisque facilisis risus. In ac erat. Etiam nulla. Donec ut arcu sit amet nisi sollicitudin gravida.',
+            style: theme.textTheme.body2,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+          ),
+        ],
+      ),
     );
 
     //CARD PROGRESS BAR
@@ -81,7 +84,7 @@ class HomePage extends StatelessWidget {
         SizedBox(
           child: new LinearProgressIndicator(
             valueColor: new AlwaysStoppedAnimation(Colors.blue),
-            value: .1,
+            value: .03,
           ),
           height: 4.0,
           width: 100.0,
@@ -210,41 +213,42 @@ class HomePage extends StatelessWidget {
               ListView(
                 children: <Widget>[
                   SizedBox(
-                    height: 162,
-                    child: (Card(
-                        clipBehavior: Clip.antiAlias,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  vCardOverline,
-                                  vCardDate,
-                                ],
-                              ),
-                              SizedBox(height: 10.0),
-                              Row(
-                                children: <Widget>[
-                                  vCardHeading,
-                                ],
-                              ),
-                              SizedBox(height: 8.0),
-                              Row(
-                                children: <Widget>[
-                                  vCardSummary,
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  vCardProgress,
-                                  vCardActions,
-                                ],
-                              )
-                            ],
-                          ),
-                        ))),
+                    height: 174,
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                vCardOverline,
+                                vCardDate,
+                              ],
+                            ),
+                            SizedBox(height: 10.0),
+                            Row(
+                              children: <Widget>[
+                                vCardHeading,
+                              ],
+                            ),
+                            SizedBox(height: 8.0),
+                            Row(
+                              children: <Widget>[
+                                vCardSummary,
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                vCardProgress,
+                                vCardActions,
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
