@@ -13,228 +13,112 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'model/visits_repository.dart';
-import 'model/visit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
-  List<Card> _buildGridCards(BuildContext context) {
-    List<Visit> visits = VisitsRepository.loadVisits(Category.all);
-
-    if (visits == null || visits.isEmpty) {
-      return const <Card>[];
-    }
-
-    final ThemeData theme = Theme.of(context);
-
-    return visits.map((visit) {
-      // CARD OVERLINE WITH SITE AND LOCATION
-      final vCardOverline = new Expanded(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              visit.site + ' - ' + visit.location,
-              maxLines: 1,
-              style: theme.textTheme.caption,
-            ),
-          ],
-        ),
-      );
-
-      //CARD OVERLINE WITH DATE/TIME
-      final vCardDate = new Column(
-        children: <Widget>[
-          Text(
-            visit.time,
-            maxLines: 1,
-            style: theme.textTheme.caption,
-          ),
-        ],
-      );
-
-      //CARD HEADING
-      final vCardHeading = new Column(
-        children: <Widget>[
-          Text(
-            visit.name,
-            style: theme.textTheme.headline,
-            maxLines: 1,
-          ),
-        ],
-      );
-
-      //CARD SUMMARY
-      final vCardSummary = new Column(
-        children: <Widget>[
-          Text(
-            visit.summary,
-            style: theme.textTheme.body2,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-          ),
-        ],
-      );
-
-      //CARD PROGRESS BAR
-      final vCardProgress = new Expanded(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            child: new LinearProgressIndicator(
-              valueColor: new AlwaysStoppedAnimation(Colors.blue),
-              value: .1,
-            ),
-            height: 4.0,
-            width: 100.0,
-          )
-        ],
-      ));
-
-      //CARD ACTIONS
-      final vCardActions = new Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              //TO DO ICON
-              Column(
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.solidClipboard),
-                    color: Colors.black45,
-                    iconSize: 18,
-                    onPressed: () {
-                      print('To Do Button');
-                    },
-                  ),
-                ],
-              ),
-              //ASSIGN USERS ICON
-              Column(
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.solidUserCircle),
-                    color: Colors.black45,
-                    iconSize: 18,
-                    onPressed: () {
-                      print('To Do Button');
-                    },
-                  ),
-                ],
-              ),
-              //MORE ACTIONS ICON
-              Column(
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.ellipsisV),
-                    color: Colors.black45,
-                    iconSize: 18,
-                    onPressed: () {
-                      print('Card Actions');
-                    },
-                  ),
-                ],
-              ),
-            ],
-          )
-        ],
-      );
-
-      return Card(
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        vCardOverline,
-                        vCardDate,
-                      ],
-                    ),
-                    SizedBox(height: 10.0),
-                    Row(
-                      children: <Widget>[
-                        vCardHeading,
-                      ],
-                    ),
-                    SizedBox(height: 8.0),
-                    vCardSummary,
-                    SizedBox(height: 8.0),
-                    Row(
-                      children: <Widget>[
-                        vCardProgress,
-                        vCardActions,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }).toList();
-  }
+  // TODO: Make a collection of cards (102)
+  // TODO: Add a variable for Category (104)
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            semanticLabel: 'menu',
+    // TODO: Return an AsymmetricView (104)
+    // TODO: Pass Category variable to AsymmetricView (104)
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(
+                Icons.menu,
+                semanticLabel: 'menu',
+              ),
+              onPressed: () {
+                print('Menu button');
+              },
+            ),
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: [
+                Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text("Today")),
+                Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text("Upcoming")),
+                Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text("Past")),
+                Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text("Admin"))
+              ],
+            ),
+            title: Text('Tracer'),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.add,
+                  semanticLabel: 'add',
+                ),
+                onPressed: () {
+                  print('Add button');
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  semanticLabel: 'search',
+                ),
+                onPressed: () {
+                  print('Search button');
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  semanticLabel: 'more',
+                ),
+                onPressed: () {
+                  print('More button');
+                },
+              ),
+            ],
           ),
-          onPressed: () {
-            print('Menu button');
-          },
+          body: TabBarView(
+            children: <Widget>[
+              ListView(
+                children: <Widget>[
+                  SizedBox(
+                    height: 100,
+                    child: (Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const ListTile(
+                            leading: Icon(Icons.album),
+                            title: Text('The Enchanted Nightingale'),
+                            subtitle: Text(
+                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
+                          ),
+                        ],
+                      ),
+                    )),
+                  ),
+                ],
+              ),
+              Text('All'),
+              Text('Fav'),
+              Text('Past')
+            ],
+          ),
         ),
-        title: Text('Visits'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.add,
-              semanticLabel: 'add',
-            ),
-            onPressed: () {
-              print('Add button');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              semanticLabel: 'search',
-            ),
-            onPressed: () {
-              print('Search button');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.more_vert,
-              semanticLabel: 'more',
-            ),
-            onPressed: () {
-              print('More button');
-            },
-          ),
-        ],
       ),
-      body: GridView.count(
-          crossAxisCount: 1,
-          padding: EdgeInsets.all(16.0),
-          childAspectRatio: MediaQuery.of(context).size.width /
-              (MediaQuery.of(context).size.height / 4),
-          children: _buildGridCards(context) // Changed code
-          ),
-      resizeToAvoidBottomInset: false,
+
+      // TODO: Add a grid view (102)
     );
   }
 }

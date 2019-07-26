@@ -165,51 +165,6 @@ class _AddVisitState extends State<AddVisit> {
                 ),
               ),
               SizedBox(height: 8.0),
-              // Row(
-              //   children: <Widget>[
-              //     Column(
-              //       children: <Widget>[
-              //         CircleAvatar(
-              //           backgroundColor: kTracersBlue900,
-              //           child: Text('JS'),
-              //         )
-              //       ],
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: <Widget>[
-              //           Padding(
-              //             padding: const EdgeInsets.only(left: 10),
-              //             child: Column(
-              //               children: <Widget>[
-              //                 Padding(
-              //                   padding: const EdgeInsets.only(left: 10),
-              //                   child: Text(
-              //                     'John Smith',
-              //                     maxLines: 1,
-              //                     style: Theme.of(context).textTheme.title,
-              //                   ),
-              //                 ),
-              //                 Text(
-              //                   'Pharmacy',
-              //                   maxLines: 1,
-              //                   style: Theme.of(context).textTheme.subtitle,
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //     Column(
-              //       children: <Widget>[],
-              //     ),
-              //   ],
-              // ),
-              Divider(
-                height: 1,
-              ),
 
               // STYLE LIST USING CheckboxListTile
               CheckboxListTile(

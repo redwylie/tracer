@@ -17,7 +17,6 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'addVisit.dart';
 import 'colors.dart';
-import 'model/participant.dart';
 
 class TracerApp extends StatelessWidget {
   @override
