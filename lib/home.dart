@@ -151,7 +151,6 @@ class HomePage extends StatelessWidget {
                 //COMPLIANT SCORE
                 ButtonTheme(
                   minWidth: 16.0,
- 
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
                     onPressed: () => print("COMPLIANT Score Button Pressed"),
@@ -179,7 +178,6 @@ class HomePage extends StatelessWidget {
                 //ADVISORY SCORE
                 ButtonTheme(
                   minWidth: 16.0,
-   
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
                     onPressed: () => print("ADVISORY Score Button Pressed"),
@@ -207,10 +205,10 @@ class HomePage extends StatelessWidget {
                 //NON-COMPLIANT SCORE
                 ButtonTheme(
                   minWidth: 16.0,
-
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
-                    onPressed: () => print("NON-COMPLIANT Score Button Pressed"),
+                    onPressed: () =>
+                        print("NON-COMPLIANT Score Button Pressed"),
                     child: new Row(
                       children: <Widget>[
                         Padding(
