@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Tracer/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'font_awesome_flutter.dart';
@@ -138,6 +139,107 @@ class HomePage extends StatelessWidget {
       ],
     );
 
+    //SCORE ACTIONS
+    final vCardScore = new Expanded(
+        child: Row(
+      children: <Widget>[
+        //COMPLIANT ICON AND SCORE
+        Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                //COMPLIANT SCORE
+                ButtonTheme(
+                  minWidth: 16.0,
+ 
+                  child: FlatButton(
+                    padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
+                    onPressed: () => print("a"),
+                    child: new Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3.0),
+                          child: Icon(
+                            FontAwesomeIcons.solidCheckCircle,
+                            size: 16.0,
+                            color: kTracersGreen500,
+                          ),
+                        ),
+                        Text(
+                          '100%',
+                          style: TextStyle(
+                            fontSize: 11.0,
+                            color: kTracersGreen500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //ADVISORY SCORE
+                ButtonTheme(
+                  minWidth: 16.0,
+   
+                  child: FlatButton(
+                    padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
+                    onPressed: () => print("a"),
+                    child: new Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3.0),
+                          child: Icon(
+                            FontAwesomeIcons.exclamationCircle,
+                            size: 16.0,
+                            color: kTracersYellow500,
+                          ),
+                        ),
+                        Text(
+                          '40%',
+                          style: TextStyle(
+                            fontSize: 11.0,
+                            color: kTracersYellow500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //NON-COMPLIANT SCORE
+                ButtonTheme(
+                  minWidth: 16.0,
+
+                  child: FlatButton(
+                    padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+                    onPressed: () => print("a"),
+                    child: new Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 3.0),
+                          child: Icon(
+                            FontAwesomeIcons.solidTimesCircle,
+                            size: 16.0,
+                            color: kTracersRed500,
+                          ),
+                        ),
+                        Text(
+                          '40%',
+                          style: TextStyle(
+                            fontSize: 11.0,
+                            color: kTracersRed500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+        //ADVISORY ICON AND SCORE
+      ],
+    ));
+
     //TODAY CARD
     final vCardToday = new SizedBox(
       height: 174,
@@ -171,7 +273,8 @@ class HomePage extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  vCardProgress,
+                  //vCardProgress,
+                  vCardScore,
                   vCardActions,
                 ],
               )
