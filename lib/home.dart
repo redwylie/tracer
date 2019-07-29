@@ -17,9 +17,6 @@ import 'package:flutter/material.dart';
 import 'font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
-  // TODO: Make a collection of cards (102)
-  // TODO: Add a variable for Category (104)
-
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -141,6 +138,49 @@ class HomePage extends StatelessWidget {
       ],
     );
 
+    //TODAY CARD
+    final vCardToday = new SizedBox(
+      height: 174,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  vCardOverline,
+                  vCardDate,
+                ],
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                children: <Widget>[
+                  vCardHeading,
+                ],
+              ),
+              SizedBox(height: 8.0),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
+                child: Row(
+                  children: <Widget>[
+                    vCardSummary,
+                  ],
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  vCardProgress,
+                  vCardActions,
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+
     return MaterialApp(
       home: DefaultTabController(
         length: 4,
@@ -212,44 +252,11 @@ class HomePage extends StatelessWidget {
               //TODAY TAB PANE CONTENT
               ListView(
                 children: <Widget>[
-                  SizedBox(
-                    height: 174,
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                vCardOverline,
-                                vCardDate,
-                              ],
-                            ),
-                            SizedBox(height: 10.0),
-                            Row(
-                              children: <Widget>[
-                                vCardHeading,
-                              ],
-                            ),
-                            SizedBox(height: 8.0),
-                            Row(
-                              children: <Widget>[
-                                vCardSummary,
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                vCardProgress,
-                                vCardActions,
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  vCardToday,
+                  vCardToday,
+                  vCardToday,
+                  vCardToday,
+                  vCardToday,
                 ],
               ),
 
