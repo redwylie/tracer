@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: Icon(FontAwesomeIcons.solidClipboard),
                   color: Colors.black45,
-                  iconSize: 18,
+                  iconSize: 16,
                   onPressed: () {
                     print('To Do Button');
                   },
@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: Icon(FontAwesomeIcons.solidUserCircle),
                   color: Colors.black45,
-                  iconSize: 18,
+                  iconSize: 16,
                   onPressed: () {
                     print('To Do Button');
                   },
@@ -127,7 +127,7 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: Icon(FontAwesomeIcons.ellipsisV),
                   color: Colors.black45,
-                  iconSize: 18,
+                  iconSize: 16,
                   onPressed: () {
                     print('Card Actions');
                   },
@@ -154,7 +154,7 @@ class HomePage extends StatelessWidget {
  
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
-                    onPressed: () => print("a"),
+                    onPressed: () => print("COMPLIANT Score Button Pressed"),
                     child: new Row(
                       children: <Widget>[
                         Padding(
@@ -182,7 +182,7 @@ class HomePage extends StatelessWidget {
    
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
-                    onPressed: () => print("a"),
+                    onPressed: () => print("ADVISORY Score Button Pressed"),
                     child: new Row(
                       children: <Widget>[
                         Padding(
@@ -210,7 +210,7 @@ class HomePage extends StatelessWidget {
 
                   child: FlatButton(
                     padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
-                    onPressed: () => print("a"),
+                    onPressed: () => print("NON-COMPLIANT Score Button Pressed"),
                     child: new Row(
                       children: <Widget>[
                         Padding(
