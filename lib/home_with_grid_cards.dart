@@ -15,7 +15,7 @@
 import 'package:flutter/material.dart';
 import 'model/visits_repository.dart';
 import 'model/visit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   List<Card> _buildGridCards(BuildContext context) {
