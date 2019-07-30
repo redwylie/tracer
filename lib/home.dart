@@ -91,9 +91,9 @@ class HomePage extends StatelessWidget {
     ));
 
     //CARD ACTIONS
-    final vCardActions = new Column(
-      children: <Widget>[
-        Row(
+    final vCardActions = new Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             //TO DO ICON
             Column(
@@ -136,12 +136,12 @@ class HomePage extends StatelessWidget {
             ),
           ],
         )
-      ],
     );
 
     //SCORE ACTIONS
     final vCardScore = new Expanded(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           //COMPLIANT SCORE
           Column(
@@ -149,7 +149,7 @@ class HomePage extends StatelessWidget {
               ButtonTheme(
                 minWidth: 16.0,
                 child: FlatButton(
-                  padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
+                  padding: const EdgeInsets.all(1),
                   onPressed: () => print("COMPLIANT Score Button Pressed"),
                   child: new Row(
                     children: <Widget>[
@@ -180,7 +180,7 @@ class HomePage extends StatelessWidget {
               ButtonTheme(
                 minWidth: 16.0,
                 child: FlatButton(
-                  padding: const EdgeInsets.fromLTRB(1, 1, 4, 1),
+                  padding: const EdgeInsets.all(1),
                   onPressed: () => print("ADVISORY Score Button Pressed"),
                   child: new Row(
                     children: <Widget>[
@@ -211,7 +211,7 @@ class HomePage extends StatelessWidget {
               ButtonTheme(
                 minWidth: 16.0,
                 child: FlatButton(
-                  padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+                  padding: const EdgeInsets.all(1),
                   onPressed: () => print("NON-COMPLIANT Score Button Pressed"),
                   child: new Row(
                     children: <Widget>[
@@ -272,13 +272,17 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
+              Expanded(
+                child:  Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   //vCardProgress,
                   vCardScore,
                   vCardActions,
                 ],
-              )
+              ),
+              ),
+             
             ],
           ),
         ),
