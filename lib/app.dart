@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Tracer/logExceptions.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -37,7 +38,7 @@ class TracerApp extends StatelessWidget {
 
     return MaterialPageRoute<void>(
       settings: settings,
-      builder: (BuildContext context) => AddVisit(),
+      builder: (BuildContext context) => LogExceptions(),
       fullscreenDialog: true,
     );
   }
@@ -79,7 +80,7 @@ TextTheme _buildTracersTextTheme(TextTheme base) {
         //   fontWeight: FontWeight.w500,
         // ),
         title: base.title.copyWith(fontSize: 18.0),
-        subhead: TextStyle(color: kTracersBlue500),
+        subhead: TextStyle(color: kTracersBlue500, fontSize: 12),
 
         caption: base.caption.copyWith(
           fontWeight: FontWeight.w400,

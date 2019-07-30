@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
     final obsCatListTile = new ListTile(
       contentPadding: EdgeInsets.all(0),
       leading: SizedBox(
-        width: 50,
+        width: 40,
         height: 42,
         child: Stack(
           children: <Widget>[
@@ -40,14 +40,14 @@ class HomePage extends StatelessWidget {
               //IF NOT ASSIGNED IT WILL BE JUST A ICON WITH A WHITE BACKGROUND
               child: Icon(
                 FontAwesomeIcons.solidUserCircle,
-                size: 40,
+                size: 35,
                 color: kTracersGray300,
               ),
               backgroundColor: kTracersWhite,
               //END IF NOT ASSIGNED
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
               alignment: Alignment.bottomCenter,
               child: CircleAvatar(
                 maxRadius: 8,
@@ -170,8 +170,23 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 8.0),
                   obsCatListTile,
+                  Divider(
+                    height: 1.0,
+                    indent: 55.0,
+                    endIndent: 0,
+                  ),
                   obsCatListTile,
+                  Divider(
+                    height: 1.0,
+                    indent: 55.0,
+                    endIndent: 0,
+                  ),
                   obsCatListTile,
+                  Divider(
+                    height: 1.0,
+                    indent: 55.0,
+                    endIndent: 0,
+                  ),
                 ],
               ),
 

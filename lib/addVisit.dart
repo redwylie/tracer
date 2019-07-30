@@ -21,7 +21,7 @@ class _AddVisitState extends State<AddVisit> {
       ),
       body: SafeArea(
         child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             children: <Widget>[
               SizedBox(height: 12.0),
               Row(
