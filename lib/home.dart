@@ -76,67 +76,62 @@ class HomePage extends StatelessWidget {
 
     //CARD PROGRESS BAR
     final vCardProgress = new Expanded(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          child: new LinearProgressIndicator(
-            valueColor: new AlwaysStoppedAnimation(Colors.blue),
-            value: .03,
-          ),
-          height: 4.0,
-          width: 100.0,
-        )
-      ],
-    ));
+      child: new SizedBox(
+        height: 4,
+        child: new LinearProgressIndicator(
+          valueColor: new AlwaysStoppedAnimation(kTracersBlue500),
+          backgroundColor: kTracersBlue100,
+          value: .03,
+        ),
+      ),
+    );
 
     //CARD ACTIONS
     final vCardActions = new Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        //TO DO ICON
+        Column(
           children: <Widget>[
-            //TO DO ICON
-            Column(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(FontAwesomeIcons.solidClipboard),
-                  color: Colors.black45,
-                  iconSize: 16,
-                  onPressed: () {
-                    print('To Do Button');
-                  },
-                ),
-              ],
-            ),
-            //ASSIGN USERS ICON
-            Column(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(FontAwesomeIcons.solidUserCircle),
-                  color: Colors.black45,
-                  iconSize: 16,
-                  onPressed: () {
-                    print('To Do Button');
-                  },
-                ),
-              ],
-            ),
-            //MORE ACTIONS ICON
-            Column(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(FontAwesomeIcons.ellipsisV),
-                  color: Colors.black45,
-                  iconSize: 16,
-                  onPressed: () {
-                    print('Card Actions');
-                  },
-                ),
-              ],
+            IconButton(
+              icon: Icon(FontAwesomeIcons.solidClipboard),
+              color: Colors.black45,
+              iconSize: 16,
+              onPressed: () {
+                print('To Do Button');
+              },
             ),
           ],
-        )
-    );
+        ),
+        //ASSIGN USERS ICON
+        Column(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(FontAwesomeIcons.solidUserCircle),
+              color: Colors.black45,
+              iconSize: 16,
+              onPressed: () {
+                print('To Do Button');
+              },
+            ),
+          ],
+        ),
+        //MORE ACTIONS ICON
+        Column(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(FontAwesomeIcons.ellipsisV),
+              color: Colors.black45,
+              iconSize: 16,
+              onPressed: () {
+                print('Card Actions');
+              },
+            ),
+          ],
+        ),
+      ],
+    ));
 
     //SCORE ACTIONS
     final vCardScore = new Expanded(
@@ -273,16 +268,15 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child:  Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  //vCardProgress,
-                  vCardScore,
-                  vCardActions,
-                ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    vCardProgress,
+                    //vCardScore,
+                    vCardActions,
+                  ],
+                ),
               ),
-              ),
-             
             ],
           ),
         ),

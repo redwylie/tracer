@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const kTracersBlue100 = const Color(0xFFc5e1f1);
 const kTracersBlue500 = const Color(0xFF007BC3);
 const kTracersBlue900 = const Color(0xFF00598D);
 
