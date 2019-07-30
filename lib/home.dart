@@ -16,271 +16,86 @@ import 'package:Tracer/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'font_awesome_flutter.dart';
+import 'dart:math' as math;
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    final vCardOverline = new Expanded(
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'visit.site' + ' - ' + 'visit.location',
-            maxLines: 1,
-            style: theme.textTheme.caption,
-          ),
-        ],
-      ),
-    );
-    //CARD OVERLINE WITH DATE/TIME
-    final vCardDate = new Column(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
-          child: Text(
-            'Today',
-            maxLines: 1,
-            style: theme.textTheme.caption,
-          ),
-        )
-      ],
-    );
-
-    //CARD HEADING
-    final vCardHeading = new Column(
-      children: <Widget>[
-        Text(
-          'visit.name',
-          style: theme.textTheme.headline,
-          maxLines: 1,
-        ),
-      ],
-    );
-
-    //CARD SUMMARY
-    final vCardSummary = new Flexible(
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Quisque viverra nunc eget dui. Etiam iaculis tincidunt sapien. Aliquam erat volutpat. Mauris sagittis mi suscipit est. Maecenas adipiscing erat vestibulum purus. In scelerisque facilisis risus. In ac erat. Etiam nulla. Donec ut arcu sit amet nisi sollicitudin gravida.',
-            style: theme.textTheme.body2,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-          ),
-        ],
-      ),
-    );
-
-    //CARD PROGRESS BAR
-    final vCardProgress = new Expanded(
-      child: new SizedBox(
-        height: 4,
-        child: new LinearProgressIndicator(
-          valueColor: new AlwaysStoppedAnimation(kTracersBlue500),
-          backgroundColor: kTracersBlue100,
-          value: .03,
-        ),
-      ),
-    );
-
-    //CARD ACTIONS
-    final vCardActions = new Expanded(
-        child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        //TO DO ICON
-        Column(
+    //OBSERVATION CATEGORY LIST TILE
+    final obsCatListTile = new ListTile(
+      contentPadding: EdgeInsets.all(0),
+      leading: SizedBox(
+        width: 50,
+        height: 42,
+        child: Stack(
           children: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.solidClipboard),
-              color: Colors.black45,
-              iconSize: 16,
-              onPressed: () {
-                print('To Do Button');
-              },
+            CircleAvatar(
+              // IF ASSIGNED IT WILL HAVE A PHOTO OR INITIALS
+              //backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
+              //child: Text('BH'),
+              //END IF ASSIGNED
+
+              //IF NOT ASSIGNED IT WILL BE JUST A ICON WITH A WHITE BACKGROUND
+              child: Icon(
+                FontAwesomeIcons.solidUserCircle,
+                size: 40,
+                color: kTracersGray300,
+              ),
+              backgroundColor: kTracersWhite,
+              //END IF NOT ASSIGNED
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              alignment: Alignment.bottomCenter,
+              child: CircleAvatar(
+                maxRadius: 8,
+
+                //IF NOT YEY ASSESED FLAG ICON IS GRAY
+                backgroundColor: kTracersGray300,
+
+                //IF NO EXCEOPTIONS FOUND ICON IS BLUE
+                //backgroundColor: kTracersBlue500,
+
+                //IF EXCEPTIONS FOUND FLAG ICON IS RED
+                //backgroundColor: kTracersRed500,
+
+                child: Icon(
+                  Icons.flag,
+                  size: 12,
+                  color: kTracersWhite,
+                ),
+              ),
             ),
           ],
         ),
-        //ASSIGN USERS ICON
-        Column(
-          children: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.solidUserCircle),
-              color: Colors.black45,
-              iconSize: 16,
-              onPressed: () {
-                print('To Do Button');
-              },
-            ),
-          ],
-        ),
-        //MORE ACTIONS ICON
-        Column(
-          children: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.ellipsisV),
-              color: Colors.black45,
-              iconSize: 16,
-              onPressed: () {
-                print('Card Actions');
-              },
-            ),
-          ],
-        ),
-      ],
-    ));
-
-    //SCORE ACTIONS
-    final vCardScore = new Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          //COMPLIANT SCORE
-          Column(
-            children: <Widget>[
-              ButtonTheme(
-                minWidth: 16.0,
-                child: FlatButton(
-                  padding: const EdgeInsets.all(1),
-                  onPressed: () => print("COMPLIANT Score Button Pressed"),
-                  child: new Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 3.0),
-                        child: Icon(
-                          FontAwesomeIcons.solidCheckCircle,
-                          size: 16.0,
-                          color: kTracersGreen500,
-                        ),
-                      ),
-                      Text(
-                        '100%',
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: kTracersGreen500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            children: <Widget>[
-              //ADVISORY SCORE
-              ButtonTheme(
-                minWidth: 16.0,
-                child: FlatButton(
-                  padding: const EdgeInsets.all(1),
-                  onPressed: () => print("ADVISORY Score Button Pressed"),
-                  child: new Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 3.0),
-                        child: Icon(
-                          FontAwesomeIcons.exclamationCircle,
-                          size: 16.0,
-                          color: kTracersYellow500,
-                        ),
-                      ),
-                      Text(
-                        '40%',
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: kTracersYellow500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            children: <Widget>[
-              //NON-COMPLIANT SCORE
-              ButtonTheme(
-                minWidth: 16.0,
-                child: FlatButton(
-                  padding: const EdgeInsets.all(1),
-                  onPressed: () => print("NON-COMPLIANT Score Button Pressed"),
-                  child: new Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 3.0),
-                        child: Icon(
-                          FontAwesomeIcons.solidTimesCircle,
-                          size: 16.0,
-                          color: kTracersRed500,
-                        ),
-                      ),
-                      Text(
-                        '40%',
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: kTracersRed500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
-      //ADVISORY ICON AND SCORE
+      title: Text(
+        'Meds, Specimens Treatment ',
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
+      ),
+      trailing: Icon(
+        //ICON IS GREEN CHECK IF COMPLIANT
+        FontAwesomeIcons.solidCheckCircle,
+        color: kTracersGreen500,
+
+        //ICON IS YELLOW ! IF ADVISORY
+        //FontAwesomeIcons.exclamationCircle,
+        //color: kTracersYellow500,
+
+        //ICON IS RED X IF NON COMPLIANT
+        //FontAwesomeIcons.solidTimesCircle,
+        //color: kTracersRed500,
+        size: 16.0,
+      ),
     );
 
-    //TODAY CARD
-    final vCardToday = new SizedBox(
-      height: 174,
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(16.0, 12.0, 0, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  vCardOverline,
-                  vCardDate,
-                ],
-              ),
-              SizedBox(height: 10.0),
-              Row(
-                children: <Widget>[
-                  vCardHeading,
-                ],
-              ),
-              SizedBox(height: 8.0),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
-                child: Row(
-                  children: <Widget>[
-                    vCardSummary,
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    vCardProgress,
-                    //vCardScore,
-                    vCardActions,
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    final obsCatContainer = new Container(
+      height: 50,
+      color: Colors.amber[600],
+      child: const Center(child: Text('Entry A')),
     );
 
     return MaterialApp(
@@ -303,32 +118,23 @@ class HomePage extends StatelessWidget {
                 Container(
                     height: 50,
                     alignment: Alignment.center,
-                    child: Text("Today")),
+                    child: Text("ASSIGNED")),
                 Container(
                     height: 50,
                     alignment: Alignment.center,
-                    child: Text("Upcoming")),
+                    child: Text("ALL")),
                 Container(
                     height: 50,
                     alignment: Alignment.center,
-                    child: Text("Past")),
+                    child: Text("FAVORITES")),
                 Container(
                     height: 50,
                     alignment: Alignment.center,
-                    child: Text("Admin"))
+                    child: Text("EXCEPTIONS"))
               ],
             ),
-            title: Text('Tracer'),
+            title: Text('Visit Name - Today'),
             actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.add,
-                  semanticLabel: 'add',
-                ),
-                onPressed: () {
-                  print('Add button');
-                },
-              ),
               IconButton(
                 icon: Icon(
                   Icons.search,
@@ -351,25 +157,56 @@ class HomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              //TODAY TAB PANE CONTENT
+              //ASSIGNED OBSERVATION CATEGORIES TAB PANE CONTENT
               ListView(
+                padding: EdgeInsets.fromLTRB(12, 16, 12, 16),
+                //padding: EdgeInsets.symmetric(horizontal: 24.0),
                 children: <Widget>[
-                  vCardToday,
-                  vCardToday,
-                  vCardToday,
-                  vCardToday,
-                  vCardToday,
+                  Text(
+                    "NSPG 1 Patient Identification",
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.subhead,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 8.0),
+                  obsCatListTile,
+                  obsCatListTile,
+                  obsCatListTile,
                 ],
               ),
 
-              //UPCOMING TAB PANE CONTENT
-              Text('Upcoming'),
+              //ALL TAB PANE CONTENT
+              ListView(
+                padding: EdgeInsets.fromLTRB(12, 16, 12, 16),
+                //padding: EdgeInsets.symmetric(horizontal: 24.0),
+                children: <Widget>[
+                  Text(
+                    "//ALL LIST GOES HERE",
+                  ),
+                ],
+              ),
 
-              //PAST TAB PANE CONTENT
-              Text('Past'),
+              //FAV TAB PANE CONTENT
+              ListView(
+                padding: EdgeInsets.fromLTRB(12, 16, 12, 16),
+                //padding: EdgeInsets.symmetric(horizontal: 24.0),
+                children: <Widget>[
+                  Text(
+                    "//FAVORITES LIST GOES HERE",
+                  ),
+                ],
+              ),
 
-              //ADMIN TAB PANE CONTENT
-              Text('Admin')
+              //EXCEPTIONS ONLY PANE CONTENT
+              ListView(
+                padding: EdgeInsets.fromLTRB(12, 16, 12, 16),
+                //padding: EdgeInsets.symmetric(horizontal: 24.0),
+                children: <Widget>[
+                  Text(
+                    "//EXCEPTIONS ONLY",
+                  ),
+                ],
+              ),
             ],
           ),
         ),

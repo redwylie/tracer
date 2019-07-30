@@ -32,7 +32,7 @@ class _AddVisitState extends State<AddVisit> {
                       TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          filled: true,
+                          filled: false,
                           fillColor: kTracersWhite,
                           labelText: 'Date',
                           suffixIcon: Padding(
@@ -148,7 +148,7 @@ class _AddVisitState extends State<AddVisit> {
               ),
               SizedBox(height: 30.0),
               Text(
-                "Particpants",
+                "Participants",
                 maxLines: 1,
                 style: Theme.of(context).textTheme.subhead,
               ),
