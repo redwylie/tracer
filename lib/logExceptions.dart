@@ -8,6 +8,7 @@ class LogExceptions extends StatefulWidget {
   _LogExceptionsState createState() => _LogExceptionsState();
 }
 
+//SUBJECT MATTER EXPERT WIDGET
 final sMEListTile = new ListTile(
   dense: true,
   contentPadding: EdgeInsets.all(0),
@@ -47,6 +48,72 @@ final sMEListTile = new ListTile(
   ),
 );
 
+//SCORE BUTTONS WIDGET
+final scoreButtons = new Padding(
+  padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      // Ink(
+      //   decoration: ShapeDecoration(
+      //     color: Colors.lightBlue,
+      //     bor
+      //     shape: RoundedRectangleBorder(
+      //       borderRadius: new BorderRadius.circular(10.0),
+      //     ),
+      //   ),
+      //   child: IconButton(
+      //     icon: Icon(FontAwesomeIcons.ban),
+      //     color: Colors.white,
+      //     onPressed: () {
+      //       print("filled background");
+      //     },
+      //   ),
+      // ),
+      IconButton(
+        icon: Icon(FontAwesomeIcons.ban),
+        color: kTracersGray300,
+        iconSize: 24,
+        onPressed: () {
+          print('NOT APPLICABLE');
+        },
+      ),
+      IconButton(
+        icon: Icon(FontAwesomeIcons.circle),
+        color: kTracersGray300,
+        iconSize: 24,
+        onPressed: () {
+          print('DID NOT ASSESS');
+        },
+      ),
+      IconButton(
+        icon: Icon(FontAwesomeIcons.solidCheckCircle),
+        color: kTracersGray300,
+        iconSize: 24,
+        onPressed: () {
+          print('COMPLIANT');
+        },
+      ),
+      IconButton(
+        icon: Icon(FontAwesomeIcons.exclamationCircle),
+        color: kTracersGray300,
+        iconSize: 24,
+        onPressed: () {
+          print('ADVISORY');
+        },
+      ),
+      IconButton(
+        icon: Icon(FontAwesomeIcons.solidTimesCircle),
+        color: kTracersGray300,
+        iconSize: 24,
+        onPressed: () {
+          print('NON_COMPLIANT');
+        },
+      ),
+    ],
+  ),
+);
+
 class _LogExceptionsState extends State<LogExceptions> {
   final _commentsController = TextEditingController();
 
@@ -62,54 +129,7 @@ class _LogExceptionsState extends State<LogExceptions> {
         child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.ban),
-                      color: kTracersGray300,
-                      iconSize: 24,
-                      onPressed: () {
-                        print('NOT APPLICABLE');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.circle),
-                      color: kTracersGray300,
-                      iconSize: 24,
-                      onPressed: () {
-                        print('DID NOT ASSESS');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.solidCheckCircle),
-                      color: kTracersGray300,
-                      iconSize: 24,
-                      onPressed: () {
-                        print('COMPLIANT');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.exclamationCircle),
-                      color: kTracersGray300,
-                      iconSize: 24,
-                      onPressed: () {
-                        print('ADVISORY');
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.solidTimesCircle),
-                      color: kTracersGray300,
-                      iconSize: 24,
-                      onPressed: () {
-                        print('NON_COMPLIANT');
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              scoreButtons,
 
               SizedBox(height: 16.0),
 
