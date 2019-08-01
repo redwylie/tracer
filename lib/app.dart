@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import 'package:Tracer/logExceptions.dart';
+import 'package:Tracer/login.dart';
 import 'package:Tracer/todo.dart';
 import 'package:Tracer/visit_lists.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class TracerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tracer',
       home: VisitListPage(),
+      //home: HomePage(),
       initialRoute: '/login',
       onGenerateRoute: _getRoute,
       theme: _kTracersTheme, // New code
@@ -40,7 +42,9 @@ class TracerApp extends StatelessWidget {
 
     return MaterialPageRoute<void>(
       settings: settings,
-      builder: (BuildContext context) => LogExceptions(),
+      //builder: (BuildContext context) => LogExceptions(),
+      //builder: (BuildContext context) => AddVisit(),
+      builder: (BuildContext context) => LoginPage(),
       fullscreenDialog: true,
     );
   }
