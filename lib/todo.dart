@@ -21,6 +21,7 @@ class _LogToDoState extends State<LogToDo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kTracersBlue500,
         title: Text("Visit-Name To Do"),
       ),
       body: SafeArea(

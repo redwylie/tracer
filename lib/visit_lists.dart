@@ -286,11 +286,15 @@ class VisitListPage extends StatelessWidget {
       ),
     );
 
+    GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+
     return MaterialApp(
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
+          key: _scaffoldKey,
           appBar: AppBar(
+            backgroundColor: kTracersBlue500,
             leading: IconButton(
               icon: Icon(
                 Icons.menu,
@@ -298,6 +302,7 @@ class VisitListPage extends StatelessWidget {
               ),
               onPressed: () {
                 print('Menu button');
+                _scaffoldKey.currentState.openDrawer();
               },
             ),
             bottom: TabBar(
@@ -374,6 +379,34 @@ class VisitListPage extends StatelessWidget {
               //ADMIN TAB PANE CONTENT
               Text('Admin')
             ],
+          ),
+          drawer: Drawer(
+            child: ListView(
+              children: <Widget>[
+                UserAccountsDrawerHeader(
+                  accountName: Text("Branch Himes"),
+                  accountEmail: Text("bh@mgh.harvard.edu"),
+                  decoration: BoxDecoration(
+                    color: kTracersBlue500,
+                  ),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundColor: kTracersBlue900,
+                    child: Text(
+                      "BH",
+                      style: TextStyle(fontSize: 40.0),
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: Text("Today"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+                ListTile(
+                  title: Text("Profile"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+              ],
+            ),
           ),
         ),
       ),

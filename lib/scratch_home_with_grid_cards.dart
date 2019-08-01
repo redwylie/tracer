@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Tracer/colors.dart';
 import 'package:flutter/material.dart';
 import 'model/visits_repository.dart';
 import 'model/visit.dart';
@@ -187,6 +188,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kTracersBlue500,
         leading: IconButton(
           icon: Icon(
             Icons.menu,

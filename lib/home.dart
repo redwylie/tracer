@@ -103,6 +103,7 @@ class HomePage extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: kTracersBlue500,
             leading: IconButton(
               icon: Icon(
                 Icons.menu,

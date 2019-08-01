@@ -123,6 +123,7 @@ class _LogExceptionsState extends State<LogExceptions> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kTracersBlue500,
         title: Text("Meds, Specimens Treatment"),
       ),
       body: SafeArea(

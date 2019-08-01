@@ -18,6 +18,7 @@ class _AddVisitState extends State<AddVisit> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Visit"),
+        backgroundColor: kTracersBlue500,
       ),
       body: SafeArea(
         child: ListView(
