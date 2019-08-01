@@ -17,7 +17,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class VisitListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -98,8 +98,9 @@ class HomePage extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.solidClipboard),
               color: Colors.black45,
               iconSize: 16,
-              onPressed: () {
-                print('To Do Button');
+              onPressed: () async {
+                final String currentTeam = await _asyncInputDialog(context);
+                print("Current team name is $currentTeam");
               },
             ),
           ],
@@ -378,4 +379,46 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<String> _asyncInputDialog(BuildContext context) async {
+  String toDo = '';
+  return showDialog<String>(
+    context: context,
+    barrierDismissible:
+        false, // dialog is dismissible with a tap on the barrier
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('To Do'),
+        content: new Row(
+          children: <Widget>[
+            new Expanded(
+                child: new TextFormField(
+              maxLines: 10,
+              autofocus: true,
+              decoration: new InputDecoration(
+                filled: true,
+                fillColor: kTracersGray100,
+                labelText: 'Notes',
+              ),
+            ))
+          ],
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('CANCEL'),
+            onPressed: () {
+              Navigator.of(context).pop(toDo);
+            },
+          ),
+          FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop(toDo);
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
