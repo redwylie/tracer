@@ -17,6 +17,36 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'font_awesome_flutter.dart';
 
+class AppBarConstants {
+  static const String FirstItem = 'If We need more';
+  static const String SecondItem = 'Choices they go here';
+  static const String ThirdItem = 'Sign Out';
+
+  static const List<String> appBarChoices = <String>[
+    FirstItem,
+    SecondItem,
+    ThirdItem,
+  ];
+}
+
+class Constants {
+  static const String FirstItem = 'Edit Visit';
+  static const String SecondItem = 'Delete Visit';
+
+  static const List<String> visitCardChoices = <String>[
+    FirstItem,
+    SecondItem,
+  ];
+}
+
+void appBarChoiceAction(String choice) {
+  if (choice == Constants.FirstItem) {
+    print('I First Item');
+  } else if (choice == Constants.SecondItem) {
+    print('I Second Item');
+  }
+}
+
 class VisitListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -121,12 +151,18 @@ class VisitListPage extends StatelessWidget {
         //MORE ACTIONS ICON
         Column(
           children: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.ellipsisV),
-              color: Colors.black45,
-              iconSize: 16,
-              onPressed: () {
-                print('Card Actions');
+            PopupMenuButton<String>(
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.black45,
+              ),
+              itemBuilder: (BuildContext context) {
+                return Constants.visitCardChoices.map((String choice) {
+                  return PopupMenuItem<String>(
+                    value: choice,
+                    child: Text(choice),
+                  );
+                }).toList();
               },
             ),
           ],
@@ -346,13 +382,16 @@ class VisitListPage extends StatelessWidget {
                   print('Search button');
                 },
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  semanticLabel: 'more',
-                ),
-                onPressed: () {
-                  print('More button');
+              PopupMenuButton<String>(
+                icon: Icon(Icons.more_vert),
+                onSelected: appBarChoiceAction,
+                itemBuilder: (BuildContext context) {
+                  return AppBarConstants.appBarChoices.map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text(choice),
+                    );
+                  }).toList();
                 },
               ),
             ],
