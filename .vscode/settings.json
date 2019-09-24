@@ -11,7 +11,11 @@
         "AUTHORS": true,
         "build/flutter_assets/LICENSE": true,
         "build/frontend_server.d": true,
-        "**/ServiceDefinitions.json": true
+        "**/ServiceDefinitions.json": true,
+        "build": true,
+        "lib/Tracer-UI-Sandbox.code-workspace": true,
+        ".packages": true,
+        "pubspec.lock": true
     },
     "explorerExclude.backup": null
 }
